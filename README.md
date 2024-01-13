@@ -1,6 +1,8 @@
 # Tabnews Clone para o curso.dev
 
-Neste projeto tentarei utilizar PHP com o Framework Laravel
+Implementação do https://www.tabnews.com.br para o https://curso.dev
+
+Neste projeto tentarei utilizar PHP 8.2 com o Framework Laravel e a extensão Swoole 5
 
 Também irei utilizar os pacotes 
 - Laravel Octane com Swoole - que deixa o PHP assincrono como o NodeJs
