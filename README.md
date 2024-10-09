@@ -5,7 +5,9 @@ Implementação do https://www.tabnews.com.br para o https://curso.dev em Larave
 ## Requerimentos
 
 PHP 8.3
+
 Composer 2.8
+
 Docker (Para os microsserviços como Banco de Dados)
 
 ## Instalação Local
