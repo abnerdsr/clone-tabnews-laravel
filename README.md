@@ -12,9 +12,14 @@ Docker (Para os microsserviços como Banco de Dados)
 
 ## Instalação Local
 
-Rode o MakeFile para instalar todas as dependencias
+Se quiser instalar o PHP com o Composer
 ```sh
-make install-local
+make dependencies
+```
+
+Instalar a aplicação e suas dependencias
+```sh
+make install
 ```
 
 Agora suba o servidor

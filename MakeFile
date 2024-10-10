@@ -1,6 +1,4 @@
-# Makefile para instalar PHP e Composer dependendo do SO com versões específicas
-
-.PHONY: dependencies php composer cleanup install-local install-production
+.PHONY: dependencies php composer cleanup install
 
 dependencies: php composer cleanup
 
@@ -29,7 +27,7 @@ php:
 			php$(PHP_VERSION)-intl php$(PHP_VERSION)-readline \
 			php$(PHP_VERSION)-ldap \
 			php$(PHP_VERSION)-msgpack php$(PHP_VERSION)-igbinary php$(PHP_VERSION)-redis \
-			php$(PHP_VERSION)-memcached php$(PHP_VERSION)-pcov \
+			php$(PHP_VERSION)-memcached php$(PHP_VERSION)-pcov php$(PHP_VERSION)-xdebug \
 		&& sudo curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
 		&& echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$(NODE_VERSION).x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list \
 		&& sudo apt-get update \
@@ -51,17 +49,9 @@ cleanup:
 		&& sudo apt-get clean \
 		&& sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-install-local: dependencies
-	sudo apt-get update -y && apt-get install -y php$(PHP_VERSION)-xdebug
+install:
 	cp .env.example .env
 	composer install
 	php artisan key:generate
 	php artisan optimize:clear
-	php artisan octane:install --server=frankenphp
-
-install-production: dependencies
-	cp .env.example .env
-	composer install --no-dev -o
-	php artisan key:generate
-	php artisan optimize
 	php artisan octane:install --server=frankenphp
