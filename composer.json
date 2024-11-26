@@ -46,7 +46,11 @@
             "@php artisan migrate --graceful --ansi"
         ],
         "services:up": "docker compose -f infra/compose.yaml --env-file=.env up -d",
-        "services:down": "docker compose -f infra/compose.yaml --env-file=.env down"
+        "services:down": "docker compose -f infra/compose.yaml --env-file=.env down",
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php artisan octane:start"
+        ]
     },
     "extra": {
         "laravel": {
