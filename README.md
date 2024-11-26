@@ -4,27 +4,34 @@ Implementação do https://www.tabnews.com.br para o https://curso.dev em Larave
 
 ## Requerimentos
 
-PHP 8.3
+PHP 8.3 (https://laravel.com/docs/11.x/deployment#server-requirements)
 
-Composer 2.8
+Swoole 5.1 (https://laravel.com/docs/11.x/octane#swoole)
 
-Docker (Para os microsserviços como Banco de Dados)
+Composer 2.8 (https://getcomposer.org/download/)
 
-## Instalação Local
+Docker (https://www.docker.com/products/docker-desktop/)
 
-Se quiser instalar o PHP com o Composer
+## Instalação Local para desenvolvimento
+
+Dependencias
 ```sh
-make dependencies
+composer install
 ```
 
-Instalar a aplicação e suas dependencias
+Suba os microserviços Docker
 ```sh
-make install
+composer services:up
+```
+
+Arquivos de configuração e migrations
+```sh
+composer configure
 ```
 
 Agora suba o servidor
 ```sh
-php artisan octane:frankenphp
+php artisan octane:start
 ```
 
 Basta acessar a aplicação
