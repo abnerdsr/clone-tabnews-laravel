@@ -29,9 +29,9 @@ Arquivos de configuração e migrations
 composer configure
 ```
 
-Agora suba o servidor
+Agora suba o servidor local
 ```sh
-php artisan octane:start
+composer dev
 ```
 
 Basta acessar a aplicação
